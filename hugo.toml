@@ -1,6 +1,6 @@
 baseURL = 'https://pehtheme-hugo.netlify.app/'
 languageCode = 'en-us'
-title = 'Pehtheme'
+title = 'Techvify.R&D | Engineering'
 theme = 'pehtheme-hugo'
 
 paginate = '6' # <- Set the desired number of posts per page 
@@ -14,7 +14,7 @@ disqusShortname = 'your-disqus-shortname' # <- Get form here : https://disqus.co
 	mainSections = 'posts'
 
 [author]
-	name = 'Anthony Arphan'
+	name = 'Potter Le'
 	bio = 'Debitis assumenda esse dignissimos aperiam delectus maxime tenetur repudiandae dolore'
 	avatar = '/images/nasa-astronaut-unsplash.jpg'
 	twitter = 'https://twitter.com/insertapps'
