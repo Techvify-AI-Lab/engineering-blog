@@ -2092,6 +2092,22 @@ video {
     top: 2rem;
   }
 
+  .lg\:top-16 {
+    top: 4rem;
+  }
+
+  .lg\:top-0 {
+    top: 0rem;
+  }
+
+  .lg\:z-10 {
+    z-index: 10;
+  }
+
+  .lg\:pl-70 {
+    padding-left: 70px;
+  }
+
   .lg\:flex {
     display: flex;
   }
