@@ -10,12 +10,12 @@ disqusShortname = 'your-disqus-shortname' # <- Get form here : https://disqus.co
 
 [params]
 	# Meta description, not exceeding 160 characters, used for the meta description within the HTML head
-	description = 'Pehtheme Hugo Lite: A minimalist Hugo theme, built with TailwindCSS, for efficient performance and minimalism.'
+	description = 'Techvify R&D team focuses on innovative AI, generative AI, and IoT solutions, driving technological advancements and enhancing user experiences.'
 	mainSections = 'posts'
 
 [author]
 	name = 'Techvify R&D'
-	bio = 'Debitis assumenda esse dignissimos aperiam delectus maxime tenetur repudiandae dolore'
+	bio = 'The R&D team at Techvify specializes in developing cutting-edge solutions in AI, generative AI, and IoT, aiming to transform technology and enhance user experiences.'
 	avatar = '/images/nasa-astronaut-unsplash.jpg'
 	twitter = 'https://twitter.com/insertapps'
 
