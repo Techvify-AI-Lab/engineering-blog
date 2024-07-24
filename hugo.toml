@@ -14,7 +14,7 @@ disqusShortname = 'your-disqus-shortname' # <- Get form here : https://disqus.co
 	mainSections = 'posts'
 
 [author]
-	name = 'Potter Le'
+	name = 'Techvify R&D'
 	bio = 'Debitis assumenda esse dignissimos aperiam delectus maxime tenetur repudiandae dolore'
 	avatar = '/images/nasa-astronaut-unsplash.jpg'
 	twitter = 'https://twitter.com/insertapps'
