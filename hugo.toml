@@ -1,4 +1,4 @@
-baseURL = 'https://pehtheme-hugo.netlify.app/'
+baseURL = 'https://techvify-ai-lab.github.io/engineering-blog/'
 languageCode = 'en-us'
 title = 'Techvify.R&D | Engineering'
 theme = 'pehtheme-hugo'
@@ -33,8 +33,8 @@ disqusShortname = 'your-disqus-shortname' # <- Get form here : https://disqus.co
 		pageRef = '/tags'
 		weight = 20
 	[[menu.main]]
-		name = 'Taxonomy'
-		pageRef = '/tags/space/'
+		name = 'Generative AI'
+		pageRef = '/tags/genai/'
 		weight = 25
 
 [module]
