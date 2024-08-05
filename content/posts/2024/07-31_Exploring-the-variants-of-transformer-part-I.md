@@ -6,11 +6,11 @@ description: An overview of different Variants of Transformer Models
 image: images/07-31_Exploring-the-variants-of-transformer-part-I/encoders_variants.png
 caption: Transformer models variants.
 categories:
-  - overview
+  - transformer
 tags:
   - transformer
   - encoder
-  - overview
+  - ai
 draft: false
 ---
 
