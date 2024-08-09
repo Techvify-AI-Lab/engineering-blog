@@ -4,23 +4,48 @@
 
 {{- range where .Site.RegularPages "Params.tags" "intersect" (slice "feature" ) | first 1 -}}
 <section
-  class="block md:flex relative group p-6 lg:p-10 space-y-6 md:space-x-6 my-14 bg-zinc-100 rounded-3xl hover:bg-blue-100">
-  <figure class="basis-1/2 w-full aspect-video overflow-hidden rounded-2xl border">
+  class="block md:flex justify-between relative group space-y-6 md:space-x-6 my-14 w-full rounded-3xl">
+  <div class="flex-1 pt-14">
+    <p class="text-[#6B7280] text-xs mb-2 text-semibold">FEATURED</p>
+    <p class="text-1xl md:text-2xl lg:text-3xl font-bold mb-4">
+      <a
+        class="before:content-[''] before:z-10 before:top-0 before:right-0 before:left-0 before:bottom-0 before:absolute before:pointer-events-auto"
+        href="{{ .Permalink }}">{{ .Title}}</a>
+    </p>
+    <p class="line-clamp-3 whitespace-pre-wrap text-[#4B5563] mb-2">{{ .Summary}}..</p>
+   <div class="flex w-full gap-8 items-center">
+    <time class="flex items-center gap-1" datetime="{{ .Date.Format " 2006-01-02T15:04:05-07:00" | safeHTML }}">
+      <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M16.5 5.5V3.5M7.5 5.5V3.5M3.25 8.5H20.75M3 10.544C3 8.429 3 7.371 3.436 6.563C3.83003 5.84214 4.44184 5.26427 5.184 4.912C6.04 4.5 7.16 4.5 9.4 4.5H14.6C16.84 4.5 17.96 4.5 18.816 4.912C19.569 5.274 20.18 5.852 20.564 6.562C21 7.372 21 8.43 21 10.545V15.457C21 17.572 21 18.63 20.564 19.438C20.17 20.1589 19.5582 20.7367 18.816 21.089C17.96 21.5 16.84 21.5 14.6 21.5H9.4C7.16 21.5 6.04 21.5 5.184 21.088C4.44199 20.736 3.83019 20.1585 3.436 19.438C3 18.628 3 17.57 3 15.455V10.544Z" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="text-[#6B7280] text-sm">{{ .Date.Format
+        "Jan 02, 2006" }}</span></time>
+        <div class="flex items-center gap-1">
+          <svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 3.5C7.03125 3.5 3 7.53125 3 12.5C3 17.4688 7.03125 21.5 12 21.5C16.9688 21.5 21 17.4688 21 12.5C21 7.53125 16.9688 3.5 12 3.5Z" stroke="#6B7280" stroke-width="1.5" stroke-miterlimit="10"/>
+            <path d="M12 6.5V13.25H16.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <p class="text-[#6B7280] text-sm">3 minute read</p>            
+        </div>
+   </div>
+  </div>
+  <figure class="w-fit mt-0 aspect-video overflow-hidden rounded-2xl border">
 
     {{- if .Params.image }}
 
     {{- if (strings.HasPrefix .Params.image "http") }}
 
-    <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" src="{{ .Params.image }}"
-      alt="{{ $.Name }}" style="width: 100%; height: 100%; object-fit: cover;">
+    <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer w-[510px] h-[309px]" src="{{ .Params.image }}"
+      alt="{{ $.Name }}"  width="510px"
+      height="309px" style="object-fit: cover;">
 
     {{- else }}
 
     {{- with $imgfeature := resources.Get .Params.image }}
     {{ $imgfeature := $imgfeature.Resize "720x Q85" -}}
-    <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer"
-      src="{{ $imgfeature.Permalink }}" alt="{{ $.Name }}" width="{{ $imgfeature.Width }}"
-      height="{{ $imgfeature.Height }}">
+    <img class="object-cover group-hover:scale-105 transition duration-500 w-[510px] h-[309px] cursor-pointer"
+      src="{{ $imgfeature.Permalink }}" alt="{{ $.Name }}" width="510px"
+      height="309px">
     {{- end }}
 
     {{- end }}
@@ -28,13 +53,7 @@
     {{- end }}
 
   </figure>
-  <div class="basis-1/2 self-center">
-    <h2 class="text-2xl md:text-3xl lg:text-5xl font-bold mb-4"><a
-        class="before:content-[''] before:z-10 before:top-0 before:right-0 before:left-0 before:bottom-0 before:absolute before:pointer-events-auto"
-        href="{{ .Permalink }}">{{ .Title}}</a></h2>
-    <time datetime="{{ .Date.Format " 2006-01-02T15:04:05-07:00" | safeHTML }}"><span class="font-bold">{{ .Date.Format
-        "Jan 02, 2006" }}</span></time>
-  </div>
+ 
 </section>
 
 {{ end -}}
