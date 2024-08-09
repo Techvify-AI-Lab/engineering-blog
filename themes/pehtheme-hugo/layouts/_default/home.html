@@ -28,11 +28,13 @@
             <p class="text-[#6B7280] text-sm">3 minute read</p>            
         </div>
    </div>
-   <ul class="flex gap-3 items-center w-full mt-2">
+   <!-- <ul class="flex gap-3 items-center w-full mt-2">
     {{ range .Params.tags }}
       <li class="bg-[#EBF7FF] capitalize py-2 px-3 rounded-full border border-[#3090CF] text-[#3090CF] text-sm" ><a href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a></li>
     {{ end }}
-  </ul>
+  </ul> -->
+  {{- partial "terms.html" (dict "taxonomy" "tags" "page" .) -}}
+
   </div>
   <figure class="w-fit mt-0 aspect-video overflow-hidden rounded-2xl border">
 

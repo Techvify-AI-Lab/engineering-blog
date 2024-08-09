@@ -7,8 +7,10 @@ image: images/07-31_Exploring-the-variants-of-transformer-part-I/encoders_varian
 caption: Transformer models variants.
 categories:
   - transformer
-tags: ["transformer", "encoder", "ai"]
-
+tags:
+  - transformer
+  - encoder
+  - AI
 draft: false
 ---
 

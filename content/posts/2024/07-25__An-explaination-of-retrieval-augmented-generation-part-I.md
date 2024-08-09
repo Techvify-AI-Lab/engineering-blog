@@ -7,7 +7,11 @@ image: images/07-25__An-explaination-of-retrieval-augmented-generation-part-I/ra
 caption: Overview of basic workflow of a naive RAG.
 categories:
   - genai
-tags: ["generative AI", "rag", "llm", "feature"]
+tags:
+  - generative AI
+  - rag
+  - llm
+  - feature
 
 draft: false
 ---
