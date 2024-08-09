@@ -7,10 +7,8 @@ image: images/07-31_Exploring-the-variants-of-transformer-part-I/encoders_varian
 caption: Transformer models variants.
 categories:
   - transformer
-tags:
-  - transformer
-  - encoder
-  - ai
+tags: ["transformer", "encoder", "ai"]
+
 draft: false
 ---
 
@@ -28,7 +26,7 @@ Encoder-only models are a class of transformer-based architectures designed spec
 
 The first encoder-only model based on the transformer architecture was BERT. Let go through the BERT model and some of its variants
 
-## 
+##
 
 **BERT (Bidirectional Encoder Representations from Transformers)**
 
@@ -44,7 +42,7 @@ Following BERT's success, researchers found that adjusting the pretraining schem
 
 **SPANBERT**
 
-SpanBERT is another variation of BERT, primarily used for Question Answering tasks. Designed to enhance the original BERT model, SpanBERT focuses on predicting text spans rather than individual tokens. Unlike BERT, which masks random tokens in the input, SpanBERT masks random continuous spans of text. This allows SpanBERT to outperform BERT by predicting the entire content of a masked span without relying on individual token representations. It uses boundary tokens at the start and end of the span to create a fixed-length representation. 
+SpanBERT is another variation of BERT, primarily used for Question Answering tasks. Designed to enhance the original BERT model, SpanBERT focuses on predicting text spans rather than individual tokens. Unlike BERT, which masks random tokens in the input, SpanBERT masks random continuous spans of text. This allows SpanBERT to outperform BERT by predicting the entire content of a masked span without relying on individual token representations. It uses boundary tokens at the start and end of the span to create a fixed-length representation.
 
 **XLM (Cross-lingual Language Model)**
 
@@ -67,11 +65,12 @@ ELECTRA addresses a limitation of the MLM objective, where only masked token rep
 DeBERTa introduces two architectural innovations. First, it separates position information from the content vector, using two independent attention mechanisms to process both content and relative position embeddings at each layer. Second, it includes an absolute position embedding before the SoftMax layer in the token decoding head, highlighting the importance of a word's absolute position, particularly for decoding. DeBERTa was the first model, in an ensemble setting, to surpass human performance on the SuperGLUE benchmark.
 
 ##
+
 To sum it up, our brief exploration of encoder-only models highlights their critical role in efficiently processing and understanding data, especially in natural language processing tasks. These models form the backbone of many cutting-edge AI applications, offering robust performance with their specialized architecture.
 
 Looking ahead, we'll continue this journey by examining decoder-only and encoder-decoder models, comparing their strengths and use cases. Make sure to join us as we delve deeper into the intricacies of AI model design and application.
 
-**References:** 
+**References:**
 
 **Natural Language Processing with Transformers**
 by Lewis Tunstall, Leandro von Werra, and Thomas Wolf

@@ -5,7 +5,7 @@
 {{- range where .Site.RegularPages "Params.tags" "intersect" (slice "feature" ) | first 1 -}}
 <section
   class="block md:flex justify-between relative group space-y-6 md:space-x-6 my-14 w-full rounded-3xl">
-  <div class="flex-1 pt-14">
+  <div class="flex-1 pt-10">
     <p class="text-[#6B7280] text-xs mb-2 text-semibold">FEATURED</p>
     <p class="text-1xl md:text-2xl lg:text-3xl font-bold mb-4">
       <a
@@ -28,6 +28,11 @@
             <p class="text-[#6B7280] text-sm">3 minute read</p>            
         </div>
    </div>
+   <ul class="flex gap-3 items-center w-full mt-2">
+    {{ range .Params.tags }}
+      <li class="bg-[#EBF7FF] capitalize py-2 px-3 rounded-full border border-[#3090CF] text-[#3090CF] text-sm" ><a href="{{ "/tags/" | relURL }}{{ . | urlize }}">{{ . }}</a></li>
+    {{ end }}
+  </ul>
   </div>
   <figure class="w-fit mt-0 aspect-video overflow-hidden rounded-2xl border">
 
