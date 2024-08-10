@@ -6,7 +6,7 @@ $taxonomy }} {{- $label := (index . 0).Parent.LinkTitle }}
 
 <ul
   id="taxonomy"
-  class="not-prose flex items-center space-x-4 flex-nowrap whitespace-nowrap overflow-x-auto"
+  class="not-prose flex items-center space-x-4 flex-wrap whitespace-nowrap overflow-x-auto"
 >
   {{- range . }}
   <li class="my-4">
