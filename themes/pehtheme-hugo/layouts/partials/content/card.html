@@ -1,35 +1,60 @@
-<article class="relative group bg-zinc-100 hover:bg-blue-100 rounded-3xl">
-	
-	<a class="insert-link" href="{{ .Permalink }}"></a>
+<article class="relative justify-between gap-5 flex rounded-3xl">
+ <a
+        class="before:content-[''] before:z-10 before:top-0 before:right-0 before:left-0 before:bottom-0 before:absolute before:pointer-events-auto"
+        href="{{ .Permalink }}"></a>
+  <figure
+      class="w-fit ml-[-20px] border border-zinc-100 aspect-video overflow-hidden rounded-3xl"
+    >
+      {{- if .Params.image }} {{- if (strings.HasPrefix .Params.image "http") }}
 
-	<figure class="w-full aspect-video overflow-hidden rounded-3xl">
+      <img
+        class="object-cover w-[245px] h-[178px] group-hover:scale-105 transition duration-500 cursor-pointer"
+        src="{{ .Params.image }}"
+        alt="{{ $.Name }}"
+        style="object-fit: cover"
+      />
 
-		{{- if .Params.image }}
+      {{- else }} {{- with $imgcard := resources.Get .Params.image -}} {{-
+      $imgcard := $imgcard.Process "resize 750x" -}}
+      <img
+        class="object-cover w-[245px] h-[178px] group-hover:scale-105 transition duration-500 cursor-pointer"
+        src="{{ $imgcard.Permalink }}"
+        alt="{{ $.Name }}"
+        width="245px"
+        height="178px"
+      />
+      {{- end }} {{- end }} {{- end }}
+    </figure>
 
-		  {{- if (strings.HasPrefix .Params.image "http") }}
+    <div class="flex-1 flex-col">
+      <!-- <time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">{{ .Date.Format "Jan 02, 2006" }}</time> -->
 
-			<img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" src="{{ .Params.image }}" alt="{{ $.Name }}" style="width: 100%; height: 100%; object-fit: cover;">
+      <h3 class="text-[#111827] text-lg font-bold">{{ .LinkTitle }}</h3>
 
-		  {{- else }}
+      <p class="text-normal my-2 text-sm leading-normal text-[#6B7280] line-clamp-2">
+        {{ .Summary }}..
+      </p>
+	  <div class="relative flex flex-col">
+		<div class="flex gap-8 items-center">
+			<time class="flex items-center gap-1" datetime="{{ .Date.Format " 2006-01-02T15:04:05-07:00" | safeHTML }}">
+				<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+				  <path d="M16.5 5.5V3.5M7.5 5.5V3.5M3.25 8.5H20.75M3 10.544C3 8.429 3 7.371 3.436 6.563C3.83003 5.84214 4.44184 5.26427 5.184 4.912C6.04 4.5 7.16 4.5 9.4 4.5H14.6C16.84 4.5 17.96 4.5 18.816 4.912C19.569 5.274 20.18 5.852 20.564 6.562C21 7.372 21 8.43 21 10.545V15.457C21 17.572 21 18.63 20.564 19.438C20.17 20.1589 19.5582 20.7367 18.816 21.089C17.96 21.5 16.84 21.5 14.6 21.5H9.4C7.16 21.5 6.04 21.5 5.184 21.088C4.44199 20.736 3.83019 20.1585 3.436 19.438C3 18.628 3 17.57 3 15.455V10.544Z" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				  </svg>
+				  <span class="text-[#6B7280] text-sm">{{ .Date.Format
+				  "Jan 02, 2006" }}</span>
+			  </time>
+			  <div class="flex items-center gap-1">
+				<svg width="24" height="25" viewBox="0 0 24 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+					<path d="M12 3.5C7.03125 3.5 3 7.53125 3 12.5C3 17.4688 7.03125 21.5 12 21.5C16.9688 21.5 21 17.4688 21 12.5C21 7.53125 16.9688 3.5 12 3.5Z" stroke="#6B7280" stroke-width="1.5" stroke-miterlimit="10"/>
+					<path d="M12 6.5V13.25H16.5" stroke="#6B7280" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+				</svg>
+				<p class="text-[#6B7280] text-sm">{{ .ReadingTime}} minutes read</p>            
+			  </div>
+		  </div>
+		  {{- partial "terms.html" (dict "taxonomy" "tags" "page" .) -}}
 
-			{{- with $imgcard := resources.Get .Params.image -}}
-			  {{- $imgcard := $imgcard.Process "resize 750x" -}}
-			  <img class="object-cover group-hover:scale-105 transition duration-500 cursor-pointer" src="{{ $imgcard.Permalink }}" alt="{{ $.Name }}" width="{{ $imgcard.Width }}" height="{{ $imgcard.Height }}">
-			{{- end }}
-
-		  {{- end }}
-
-		{{- end }}
-
-	  </figure>
-
-	<div class="p-6">
-
-		<time datetime="{{ .Date.Format "2006-01-02T15:04:05-07:00" | safeHTML }}">{{ .Date.Format "Jan 02, 2006" }}</time>
-
-		<h3 class="my-4 text-2xl font-bold">{{ .LinkTitle }}</h3>
-
-		<p class="text-normal leading-normal text-zinc-500 line-clamp-2">{{ .Params.description }}</p>
-
-	</div>
+	  </div>
+	 
+    </div>
+	 
 </article>
