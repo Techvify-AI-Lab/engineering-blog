@@ -1,14 +1,14 @@
-<article class="relative justify-between gap-5 flex rounded-3xl">
+<article class="relative justify-between gap-5 flex-col sm:flex-row flex rounded-3xl">
  <a
         class="before:content-[''] before:z-10 before:top-0 before:right-0 before:left-0 before:bottom-0 before:absolute before:pointer-events-auto"
         href="{{ .Permalink }}"></a>
   <figure
-      class="w-fit ml-[-20px] border border-zinc-100 aspect-video overflow-hidden rounded-3xl"
+      class="w-full sm:w-fit ml-0 sm:ml-[-20px] border border-zinc-100 aspect-video overflow-hidden rounded-3xl"
     >
       {{- if .Params.image }} {{- if (strings.HasPrefix .Params.image "http") }}
 
       <img
-        class="object-cover w-[245px] h-[178px] group-hover:scale-105 transition duration-500 cursor-pointer"
+        class="object-cover w-full sm:w-[245px] h-[178px] group-hover:scale-105 transition duration-500 cursor-pointer"
         src="{{ .Params.image }}"
         alt="{{ $.Name }}"
         style="object-fit: cover"
@@ -17,7 +17,7 @@
       {{- else }} {{- with $imgcard := resources.Get .Params.image -}} {{-
       $imgcard := $imgcard.Process "resize 750x" -}}
       <img
-        class="object-cover w-[245px] h-[178px] group-hover:scale-105 transition duration-500 cursor-pointer"
+        class="object-cover w-full sm:w-[245px] h-[178px] group-hover:scale-105 transition duration-500 cursor-pointer"
         src="{{ $imgcard.Permalink }}"
         alt="{{ $.Name }}"
         width="245px"

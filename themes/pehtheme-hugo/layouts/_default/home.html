@@ -76,42 +76,66 @@
 <!-- / End category post -->
 <!-- Start recent post  -->
 
-<section class="mb-16">
+<section class="mb-16 w-full gap-32 flex">
 
-  <div class="flex gap-4 items-end mb-6">
+  <div >
+    <div class="flex gap-4 items-end mb-6">
 
+      <div class="relative w-fit bg-white">
+        <div class="absolute bottom-0 left-0 w-2/3 h-[4px] bg-[#3090CF]"></div>
+        <p class="text-base mb-2 text-[#111827] md:text-lg font-bold mr-auto">
+          Latest Posts</p>
+      </div>
+        <div class="flex flex-1 mb-4 h-[1px] bg-[#E5E7EB]"></div>
+    </div>
+  
+    <div class="grid grid-cols-1 gap-x-6 gap-y-10">
+  
+      {{ $paginator := .Paginate ( where site.RegularPages "Type" "in" site.Params.mainSections) }}
+  
+      {{ range $paginator.Pages }}
+  
+      {{- partial "content/card" . -}}
+  
+      {{ end }}
+  
+    </div>
+  
+    <!-- Paginate here -->
+  
+    <div class="flex items-center mt-10">
+      {{- if $paginator.HasPrev -}}
+      <a class="border rounded-full px-6 py-2 hover:bg-zinc-200 mr-auto" href="{{ $paginator.Prev.URL }}">← Previous</a>
+      {{- end -}}
+  
+      {{- if $paginator.HasNext -}}
+      <a class="border rounded-full px-6 py-2 hover:bg-zinc-200" href="{{ $paginator.Next.URL }}">Next →</a>
+      {{- end -}}
+    </div>
+  </div>
+  {{- $allTags := slice -}}
+  {{- range .Site.Pages -}}
+      {{- range .Params.tags -}}
+          {{- $allTags = $allTags | append . -}}
+      {{- end -}}
+  {{- end -}}
+  
+  {{- $uniqueTags := $allTags | uniq | sort -}}
+  
+  <div class="min-w-[246px] flex flex-col gap-4 border-[#E5E7EB] border h-fit p-4">
     <div class="relative w-fit bg-white">
       <div class="absolute bottom-0 left-0 w-2/3 h-[4px] bg-[#3090CF]"></div>
-      <p class="text-base mb-1 text-[#111827] md:text-lg font-bold mr-auto">
-        Latest Posts</p>
+      <p class="text-base mb-2 text-[#111827] md:text-lg font-bold mr-auto">
+        Blog Tags</p>
     </div>
-      <div class="flex flex-1 mb-4 h-[1px] bg-[#E5E7EB]"></div>
+    <ul class="flex flex-col gap-4">
+      {{- range $uniqueTags -}}
+        <li class="text-[#6B7280] cursor-pointer text-base underline capitalize">
+            <a href="/engineering-blog/tags/{{ . | urlize }}">{{ . }}</a>
+        </li>
+      {{- end -}}
+    </ul>
   </div>
-
-  <div class="grid grid-cols-1 gap-x-6 gap-y-10">
-
-    {{ $paginator := .Paginate ( where site.RegularPages "Type" "in" site.Params.mainSections) }}
-
-    {{ range $paginator.Pages }}
-
-    {{- partial "content/card" . -}}
-
-    {{ end }}
-
-  </div>
-
-  <!-- Paginate here -->
-
-  <div class="flex items-center mt-10">
-    {{- if $paginator.HasPrev -}}
-    <a class="border rounded-full px-6 py-2 hover:bg-zinc-200 mr-auto" href="{{ $paginator.Prev.URL }}">← Previous</a>
-    {{- end -}}
-
-    {{- if $paginator.HasNext -}}
-    <a class="border rounded-full px-6 py-2 hover:bg-zinc-200" href="{{ $paginator.Next.URL }}">Next →</a>
-    {{- end -}}
-  </div>
-
 </section>
 
 <!-- / End recent post  -->
