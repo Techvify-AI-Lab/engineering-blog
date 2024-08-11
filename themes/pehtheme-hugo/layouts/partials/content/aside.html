@@ -1,17 +1,18 @@
 <div class="lg:sticky lg:top-16 lg:pl-70">
+  {{- partial "content/aside-banner.html" -}}
 
-	{{- partial "content/aside-banner.html" -}}
+  <div class="space-y-6">
+    <div class="flex gap-4 items-end mb-6">
+      <div class="relative w-fit bg-white">
+        <div class="absolute bottom-0 left-0 w-2/3 h-[4px] bg-[#3090CF]"></div>
+        <p class="text-base mb-2 text-[#111827] md:text-lg font-bold mr-auto">
+          Latest Posts
+        </p>
+      </div>
+      <div class="flex flex-1 mb-4 h-[1px] bg-[#E5E7EB]"></div>
+    </div>
 
-	<div class="space-y-6">
-
-		<h2 class="font-bold text-xl mb-8">Recent Post</h2>
-
-		{{ range where .Site.RegularPages "Type" "posts" | first 5}}
-
-			{{- partial "content/list-post.html" . -}}
-
-		{{ end }}
-		
-	</div>
-
+    {{ range where .Site.RegularPages "Type" "posts" | first 5}} {{- partial
+    "content/list-post.html" . -}} {{ end }}
+  </div>
 </div>

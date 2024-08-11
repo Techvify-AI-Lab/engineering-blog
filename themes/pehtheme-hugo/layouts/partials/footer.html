@@ -58,7 +58,7 @@
     </div>
   </div>
 
-  <div class="my-8 w-full flex justify-between">
+  <div class="my-8 w-full flex-col sm:flex-row flex justify-between">
     <ul class="flex items-center space-x-4">
       {{ range .Site.Menus.main }}
       <li>
@@ -70,7 +70,7 @@
       </li>
       {{ end }}
     </ul>
-    <div class="self-center flex flex-col">
+    <div class="sm:self-center flex flex-col">
       {{ partial "content/social-media.html" . }}
     </div>
   </div>

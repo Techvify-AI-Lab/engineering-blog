@@ -1,26 +1,31 @@
 <article class="relative group flex flex-row">
-	<a class="insert-link" href="{{ .Permalink }}"></a>
-	<figure class="basis-1/3 aspect-square overflow-hidden rounded-2xl bg-zinc-100">
+  <a class="insert-link" href="{{ .Permalink }}"></a>
+  <figure
+    class="h-[100px] w-[137px] border border-zinc-100 aspect-square overflow-hidden rounded-2xl bg-zinc-100"
+  >
+    {{- if .Params.image }} {{- if (strings.HasPrefix .Params.image "http") }}
 
-		{{- if .Params.image }}
+    <img
+      class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer"
+      src="{{ .Params.image }}"
+      alt="{{ $.Name }}"
+      style="object-fit: cover"
+      style="object-fit: cover"
+    />
 
-		  {{- if (strings.HasPrefix .Params.image "http") }}
-
-		  <img class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer" src="{{ .Params.image }}" alt="{{ $.Name }}" style="width: 100%; height: 100%; object-fit: cover;" style="width: 100%; height: 100%; object-fit: cover;">
-
-		  {{- else }}
-
-			{{- with $imglist := resources.Get .Params.image -}}
-			  {{- $imglist := $imglist.Crop "250x250 Center" -}}
-			  <img class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer" src="{{ $imglist.Permalink }}" alt="{{ $.Name }}" width="{{ $imglist.Width }}" height="{{ $imglist.Height }}">
-			{{- end }}
-
-		  {{- end }}
-
-		{{- end }}
-
-	</figure>
-	<div class="basis-2/3 self-center ml-4">
-		<h3 class="font-bold group-hover:underline decoration-auto">{{ .LinkTitle }}</h3>
-	</div>
+    {{- else }} {{- with $imglist := resources.Get .Params.image -}} {{-
+    $imglist := $imglist.Crop "250x250 Center" -}}
+    <img
+      class="object-cover h-full w-full group-hover:scale-105 transition duration-500 cursor-pointer"
+      src="{{ $imglist.Permalink }}"
+      alt="{{ $.Name }}"
+    />
+    {{- end }} {{- end }} {{- end }}
+  </figure>
+  <div class="flex-1 flex flex-col gap-1 ml-4">
+    <p class="font-bold text-base group-hover:underline decoration-auto">
+      {{ .LinkTitle }}
+    </p>
+    <p class="line-clamp-2 text-[#4B5563] text-xs font-light">{{ .Summary }}</p>
+  </div>
 </article>
