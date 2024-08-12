@@ -30,11 +30,9 @@ The remainder of this article will unveil the secret behind how we can achieve a
 
 Typically, a naive RAG pipeline consists of two separate phases: **Pre-production** and **In production**
 
-<p align="center">
-  <img src="../../../assets/images/07-25__An-explaination-of-retrieval-augmented-generation-part-I/rag_overview_1.png" alt="rag_overview_2.png"/>
-  <br>
-  <em>An overview of the workflow of a basic naive RAG.</em>
-</p>
+| ![rag_overview_1.png](../../../assets/images/07-25__An-explaination-of-retrieval-augmented-generation-part-I/rag_overview_1.png) | 
+|:--:| 
+| An overview of the workflow of a basic naive RAG. |
 
 **Pre-production**
 
@@ -59,11 +57,9 @@ Typically, a naive RAG pipeline consists of two separate phases: **Pre-productio
 
 - To accommodate the context limitations of language models, text is segmented into smaller, digestible chunks.
 
-<p align="center">
-  <img src="../../../assets/images/07-25__An-explaination-of-retrieval-augmented-generation-part-I/chunking_example.png" alt="chunking_example.png"/>
-  <br>
-  <em>An example of the chunking process using a character chunking strategy with chunk size and chunk overlap of 100 and 20 characters, respectively.</em>
-</p>
+| ![chunking_example.png](../../../assets/images/07-25__An-explaination-of-retrieval-augmented-generation-part-I/chunking_example.png#center) | 
+|:--:| 
+| An example of the chunking process using a character chunking strategy with chunk size and chunk overlap of 100 and 20 characters, respectively. |
 
 - Chunks are then encoded into vector representations using an embedding model and stored in vector database.
 
