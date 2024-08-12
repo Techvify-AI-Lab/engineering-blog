@@ -9,8 +9,8 @@ categories:
   - genai
 tags:
   - generative AI
-  - rag
-  - llm
+  - RAG
+  - LLM
   - feature
 
 draft: false
@@ -28,9 +28,9 @@ Reranking reorganizes document chunks to prioritize the most relevant results, e
 
 Reranking can be achieved through rule-based methods that rely on predefined metrics such as Diversity, Relevance, and MRR, or through model-based approaches. These include Encoder-Decoder models from the BERT series (e.g., SpanBERT), specialized reranking models like Cohere rerank or bge-raranker-large, and general large language models like GPT.
 
-| ![reranking.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/reranking.png) | 
-|:--:| 
-| *An example of the order of retrieved document chunks after reranking.* |
+| ![reranking.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/reranking.png) |
+| :---------------------------------------------------------------------------------------------------------------: |
+|                      *An example of the order of retrieved document chunks after reranking.*                      |
 
 
 ### Context Selection/Compression
@@ -44,9 +44,9 @@ model’s answers.
 
 - Another straightforward and effective approach involves having the LLM evaluate the retrieved content before generating the final answer. This allows the LLM to filter out documents with poor relevance through LLM critique.
 
-| ![compressor.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/compressor.png) | 
-|:--:| 
-| *An example of compressing retrieved document chunks to reduce noise from original long contexts.* |
+| ![compressor.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/compressor.png) |
+| :-----------------------------------------------------------------------------------------------------------------: |
+|         *An example of compressing retrieved document chunks to reduce noise from original long contexts.*          |
 
 ### Reinprocal Rank Fusion
 
@@ -63,9 +63,9 @@ Once the original query is received, the model sends the original query to the l
 
 The algorithm then performs vector search to find a number of relevant documents like with RAG. But, instead of sending those documents with the queries to the large language model to generate the output, the model performs reciprocal rank fusion. Reciprocal rank fusion is an algorithm commonly used in search to assign scores to every document and rerank them according to the scores.
 
-| ![reinprocal.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/reinprocal.png) | 
-|:--:| 
-| *Basic workflow of RAG-Fusion.* |
+| ![reinprocal.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/reinprocal.png) |
+| :-----------------------------------------------------------------------------------------------------------------: |
+|                                           *Basic workflow of RAG-Fusion.*                                           |
 
 ## LLM Fine-tuning
 
