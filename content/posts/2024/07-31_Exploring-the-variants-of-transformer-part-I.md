@@ -20,11 +20,9 @@ Even though there's been an explosion of different transformer models lately, th
 
 Encoder-only models are a class of transformer-based architectures designed specifically for understanding and analyzing input data, such as text. These models focus solely on the encoding process, where they take input sequences and generate meaningful representations of the data. This is particularly useful for tasks like text classification, sentiment analysis, and named entity recognition, where the goal is to understand and process the input rather than generate new sequences.
 
-<p align="center">
-  <img src="../../../assets/images/07-31_Exploring-the-variants-of-transformer-part-I/encoders_variants.png" alt="Encoder only models variants.png"/>
-  <br>
-  <em>An overview of Encoders family.</em>
-</p>
+| ![encoders_variants.png](../../../images/07-31_Exploring-the-variants-of-transformer-part-I/encoders_variants.png) | 
+|:--:| 
+| *An overview of Encoders family.* |
 
 The first encoder-only model based on the transformer architecture was BERT. Let go through the BERT model and some of its variants
 
