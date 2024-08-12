@@ -1,6 +1,6 @@
 ---
 title: "An explaination of retrieval augmented generation (part II)"
-date: 2024-07-25T23:17:16+07:00
+date: 2024-08-12T23:17:16+07:00
 slug: /An-explaination-of-retrieval-augmented-generation-part-II/
 description: Introduction to Advanced RAG, an enhancement to overcome the limitations of Naive RAG.
 image: images/08-12__An-explaination-of-retrieval-augmented-generation-part-II/advanced_RAG.png
@@ -24,11 +24,9 @@ Coming up next the last part of the RAG series, in this part II, we focus on Adv
 
 In this second part of the RAG series, we will focus exclusively on exploring the insights of pre-retrieval methods, reserving the discussion of post-retrieval methods for the subsequent part.
 
-<p align="center">
-  <img src="../../../assets/images/08-12__An-explaination-of-retrieval-augmented-generation-part-II/advanced_RAG.png" alt="advanced_RAG.png"/>
-  <br>
-  <em>Pre-retrieval and Post-retrieval in Advanced RAG.</em>
-</p>
+| ![advanced_RAG.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-II/advanced_RAG.png) | 
+|:--:| 
+| *Pre-retrieval and Post-retrieval in Advanced RAG.* |
 
 ## Retrieval Source
 
@@ -60,20 +58,20 @@ Chunks can be enriched with metadata information such as page number, file name,
 
 - **Hierarchical index structure**: Files are arranged in parent-child relationships, with chunks linked to them. Data summaries are stored at each node, aiding in the swift traversal of data and assisting the RAG system in determining which chunks to extract.
 
-<p align="center">
-  <img src="../../../assets/images/08-12__An-explaination-of-retrieval-augmented-generation-part-II/parent_document_retriever.png" alt="parent_document_retriever.png"/>
-  <br>An illustration of Parent Document Retriever.</em>
-</p>
+
+| ![parent_document_retriever.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-II/parent_document_retriever.png) | 
+|:--:| 
+| *An illustration of Parent Document Retriever.* |
+
 
 - **Knowledge Graph index**: Utilize Knowledge Graph in constructing the hierarchical structure of documents contributes to maintaining consistency.
 
     - Nodes: representing paragraphs or structures in the documents, such as pages and tables.
     - Edges: indicating semantic/lexical similarity between paragraphs or relationships withing the document structure.
 
-<p align="center">
-  <img src="../../../assets/images/08-12__An-explaination-of-retrieval-augmented-generation-part-II/graph_neo4j.png" alt="graph_neo4j.png"/>
-  <br>An example of knowledge graph in Neo4j.</em>
-</p>
+| ![graph_neo4j.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-II/graph_neo4j.png) | 
+|:--:| 
+| *An example of knowledge graph in Neo4j.* |
 
 ## Query Optimization
 
@@ -106,10 +104,9 @@ The core concept is to retrieve chunks based on a transformed query instead of t
     - Use prompt engineering to let LLM generate a query based on the original query for subsequent retrieval (HyDE - construct hypothetical documents (assumed answers to the original query)).
 
 
-<p align="center">
-  <img src="../../../assets/images/08-12__An-explaination-of-retrieval-augmented-generation-part-II/hyde.png" alt="hyde.png"/>
-  <br>An illustration of the HyDE model.</em>
-</p>
+| ![hyde.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-II/hyde.png) | 
+|:--:| 
+| *An illustration of the HyDE model.* |
 
 ### Query Routing
 
@@ -125,11 +122,9 @@ Based on varying queries, routing to distinct RAG pipeline, which is suitable fo
     - Is a method of routing involves leveraging the semantic information of the query
 
 
-<p align="center">
-  <img src="../../../assets/images/08-12__An-explaination-of-retrieval-augmented-generation-part-II/query_routing.png" alt="query_routing.png"/>
-  <br>An illustration of different types of query routing.</em>
-</p>
-
+| ![query_routing.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-II/query_routing.png) | 
+|:--:| 
+| *An illustration of different types of query routing.* |
 
 
 ## Embedding

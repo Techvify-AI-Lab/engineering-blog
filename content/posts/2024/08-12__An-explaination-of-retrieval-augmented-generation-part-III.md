@@ -1,6 +1,6 @@
 ---
 title: "An explaination of retrieval augmented generation (part III)"
-date: 2024-07-25T23:17:16+07:00
+date: 2024-08-12T23:17:16+07:00
 slug: /An-explaination-of-retrieval-augmented-generation-part-III/
 description: Introduction to Advanced RAG, an enhancement to overcome the limitations of Naive RAG.
 image: images/08-12__An-explaination-of-retrieval-augmented-generation-part-II/advanced_RAG.png
@@ -28,11 +28,9 @@ Reranking reorganizes document chunks to prioritize the most relevant results, e
 
 Reranking can be achieved through rule-based methods that rely on predefined metrics such as Diversity, Relevance, and MRR, or through model-based approaches. These include Encoder-Decoder models from the BERT series (e.g., SpanBERT), specialized reranking models like Cohere rerank or bge-raranker-large, and general large language models like GPT.
 
-<p align="center">
-  <img src="../../../assets/images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/reranking.png" alt="reranking.png"/>
-  <br>
-  <em>An example of the order of retrieved document chunks after reranking.</em>
-</p>
+| ![reranking.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/reranking.png) | 
+|:--:| 
+| *An example of the order of retrieved document chunks after reranking.* |
 
 
 ### Context Selection/Compression
@@ -46,11 +44,9 @@ model’s answers.
 
 - Another straightforward and effective approach involves having the LLM evaluate the retrieved content before generating the final answer. This allows the LLM to filter out documents with poor relevance through LLM critique.
 
-<p align="center">
-  <img src="../../../assets/images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/compressor.png" alt="compressor.png"/>
-  <br>
-  <em>An example of compressing retrieved document chunks to reduce noise from original long contexts.</em>
-</p>
+| ![compressor.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/compressor.png) | 
+|:--:| 
+| *An example of compressing retrieved document chunks to reduce noise from original long contexts.* |
 
 ### Reinprocal Rank Fusion
 
@@ -67,11 +63,9 @@ Once the original query is received, the model sends the original query to the l
 
 The algorithm then performs vector search to find a number of relevant documents like with RAG. But, instead of sending those documents with the queries to the large language model to generate the output, the model performs reciprocal rank fusion. Reciprocal rank fusion is an algorithm commonly used in search to assign scores to every document and rerank them according to the scores.
 
-<p align="center">
-  <img src="../../../assets/images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/reinprocal.png" alt="reinprocal.png"/>
-  <br>
-  <em>An example of compressing retrieved document chunks to reduce noise from original long contexts.</em>
-</p>
+| ![reinprocal.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/reinprocal.png) | 
+|:--:| 
+| *Basic workflow of RAG-Fusion.* |
 
 ## LLM Fine-tuning
 

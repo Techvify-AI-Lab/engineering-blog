@@ -30,9 +30,9 @@ The remainder of this article will unveil the secret behind how we can achieve a
 
 Typically, a naive RAG pipeline consists of two separate phases: **Pre-production** and **In production**
 
-| ![rag_overview_1.png](../../../assets/images/07-25__An-explaination-of-retrieval-augmented-generation-part-I/rag_overview_1.png) | 
+| ![rag_overview_1.png](../../../images/07-25__An-explaination-of-retrieval-augmented-generation-part-I/rag_overview_1.png) | 
 |:--:| 
-| An overview of the workflow of a basic naive RAG. |
+| *An overview of the workflow of a basic naive RAG.* |
 
 **Pre-production**
 
@@ -57,27 +57,23 @@ Typically, a naive RAG pipeline consists of two separate phases: **Pre-productio
 
 - To accommodate the context limitations of language models, text is segmented into smaller, digestible chunks.
 
-| ![chunking_example.png](../../../assets/images/07-25__An-explaination-of-retrieval-augmented-generation-part-I/chunking_example.png#center) | 
+| ![chunking_example.png](../../../images/07-25__An-explaination-of-retrieval-augmented-generation-part-I/chunking_example.png) | 
 |:--:| 
-| An example of the chunking process using a character chunking strategy with chunk size and chunk overlap of 100 and 20 characters, respectively. |
+| *An example of the chunking process using a character chunking strategy with chunk size and chunk overlap of 100 and 20 characters, respectively.* |
 
 - Chunks are then encoded into vector representations using an embedding model and stored in vector database.
 
-<p align="center">
-  <img src="../../../assets/images/07-25__An-explaination-of-retrieval-augmented-generation-part-I/document_vectordb_example.png" alt="document_vectordb_example.png"/>
-  <br>
-  <em>An example of a document stored in vector database.</em>
-</p>
+| ![document_vectordb_example.png](../../../images/07-25__An-explaination-of-retrieval-augmented-generation-part-I/document_vectordb_example.png) | 
+|:--:| 
+| *An example of a document stored in vector database.* |
 
 - This step is crucial for enabling efficient similarity searches in the subsequent retrieval phase.
 
 ## In production
 
-<p align="center">
-  <img src="../../../assets/images/07-25__An-explaination-of-retrieval-augmented-generation-part-I/rag_overview_2.png" alt="rag_overview_2.png"/>
-  <br>
-  <em>A basic workflow of RAG</em>
-</p>
+| ![rag_overview_2.png](../../../images/07-25__An-explaination-of-retrieval-augmented-generation-part-I/rag_overview_2.png) | 
+|:--:| 
+| *A basic workflow of RAG.* |
 
 ### Retriever
 
