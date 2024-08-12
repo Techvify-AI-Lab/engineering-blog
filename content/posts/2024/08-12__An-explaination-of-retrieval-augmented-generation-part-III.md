@@ -1,6 +1,6 @@
 ---
 title: "An explaination of retrieval augmented generation (part III)"
-date: 2024-08-12T23:17:16+07:00
+date: 2024-08-12T23:17:17+07:00
 slug: /An-explaination-of-retrieval-augmented-generation-part-III/
 description: Introduction to Advanced RAG, an enhancement to overcome the limitations of Naive RAG.
 image: images/08-12__An-explaination-of-retrieval-augmented-generation-part-II/advanced_RAG.png
@@ -28,10 +28,9 @@ Reranking reorganizes document chunks to prioritize the most relevant results, e
 
 Reranking can be achieved through rule-based methods that rely on predefined metrics such as Diversity, Relevance, and MRR, or through model-based approaches. These include Encoder-Decoder models from the BERT series (e.g., SpanBERT), specialized reranking models like Cohere rerank or bge-raranker-large, and general large language models like GPT.
 
-| ![reranking.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/reranking.png) | 
-|:--:| 
-| *An example of the order of retrieved document chunks after reranking.* |
-
+| ![reranking.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/reranking.png) |
+| :---------------------------------------------------------------------------------------------------------------: |
+|                      _An example of the order of retrieved document chunks after reranking._                      |
 
 ### Context Selection/Compression
 
@@ -40,18 +39,17 @@ A common misconception in the RAG process is the belief that retrieving as many 
 - Utilize small language models (SLMs) such as GPT-2 Small or LLaMA-7B, to detect and remove unimportant tokens, transforming it into a form that is challenging for humans to comprehend but well understood by LLMs. This approach presents a direct and practical method for prompt compression, eliminating the need for additional training of LLMs while balancing language integrity and compression ratio.
 
 - In addition to compressing the context, reducing the number of documents aslo helps improve the accuracy of the
-model’s answers.
+  model’s answers.
 
 - Another straightforward and effective approach involves having the LLM evaluate the retrieved content before generating the final answer. This allows the LLM to filter out documents with poor relevance through LLM critique.
 
-| ![compressor.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/compressor.png) | 
-|:--:| 
-| *An example of compressing retrieved document chunks to reduce noise from original long contexts.* |
+| ![compressor.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/compressor.png) |
+| :-----------------------------------------------------------------------------------------------------------------: |
+|         _An example of compressing retrieved document chunks to reduce noise from original long contexts._          |
 
 ### Reinprocal Rank Fusion
 
 Reciprocal rank fusion (RRF) is a reranking algorithm that gives a reciprocal rank to documents in multiple sources, then combines those ranks and documents into one final reranked list. It has been found that RRF outperforms many other document reranking methods while being sensitive to its parameters. Utilizing RRF as a reranker in a RAG algorithm yields RAG-Fusion.
-
 
 #### What's RAG-Fusion ?
 
@@ -63,24 +61,25 @@ Once the original query is received, the model sends the original query to the l
 
 The algorithm then performs vector search to find a number of relevant documents like with RAG. But, instead of sending those documents with the queries to the large language model to generate the output, the model performs reciprocal rank fusion. Reciprocal rank fusion is an algorithm commonly used in search to assign scores to every document and rerank them according to the scores.
 
-| ![reinprocal.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/reinprocal.png) | 
-|:--:| 
-| *Basic workflow of RAG-Fusion.* |
+| ![reinprocal.png](../../../images/08-12__An-explaination-of-retrieval-augmented-generation-part-III/reinprocal.png) |
+| :-----------------------------------------------------------------------------------------------------------------: |
+|                                           _Basic workflow of RAG-Fusion._                                           |
 
 ## LLM Fine-tuning
 
-- Targeted fine-tuning based on the scenario and data characteristics on LLMs can yield better results. This is also one of the greatest advantages of using on-premise LLMs. When LLMs lack data in a specific domain, additional knowledge can be provided to the LLM through fine-tuning. 
+- Targeted fine-tuning based on the scenario and data characteristics on LLMs can yield better results. This is also one of the greatest advantages of using on-premise LLMs. When LLMs lack data in a specific domain, additional knowledge can be provided to the LLM through fine-tuning.
 
 - Another benefit of fine-tuning is the ability to adjust the
-model’s input and output. For example, it can enable LLM to
-adapt to specific data formats and generate responses in a particular style as instructed.
+  model’s input and output. For example, it can enable LLM to
+  adapt to specific data formats and generate responses in a particular style as instructed.
 
 - Aligning LLM outputs with human or retriever preferences
-through reinforcement learning is a potential approach. For
-instance, manually annotating the final generated answers
-and then providing feedback through reinforcement learning.
+  through reinforcement learning is a potential approach. For
+  instance, manually annotating the final generated answers
+  and then providing feedback through reinforcement learning.
 
 ## Wrapping Up
+
 In conclusion, both pre-retrieval and post-retrieval processes play vital roles in optimizing information retrieval systems. The pre-retrieval process focuses on enhancing the indexing structure and refining the original query to improve the quality and relevance of the content being indexed. This involves various strategies, such as optimizing index structures, adding metadata, and transforming queries. On the other hand, the post-retrieval process ensures that the retrieved content is effectively integrated with the query by re-ranking information and compressing context. This prevents information overload and highlights the most relevant details. Together, these processes ensure a more precise and relevant retrieval of information, ultimately leading to better outcomes in data retrieval tasks.
 
 In the last part of this RAG series, we will introduce Modular RAG, which offers enhanced adaptability and versatility. It incorporates diverse strategies for improving its components, such as adding a search module for similarity searches and refining the retriever through fine-tuning. Innovations like restructured RAG modules and rearranged RAG pipelines have been introduced to tackle specific challenges. The shift towards a modular RAG approach is becoming prevalent, supporting both sequential processing and integrated end-to-end training across its components.
