@@ -9,8 +9,8 @@ categories:
   - genai
 tags:
   - generative AI
-  - rag
-  - llm
+  - RAG
+  - LLM
   - feature
 
 draft: false
